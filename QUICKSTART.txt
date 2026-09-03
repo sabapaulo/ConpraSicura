@@ -1,0 +1,64 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                     COMPRASICURA - QUICKSTART                               ║
+║                   Seu Site Pronto para Vender em 5min                       ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+✅ O QUE VOCÊ TEM:
+   • Site 100% funcional e responsivo
+   • Design profissional com cores CompraSicura
+   • Carrinho funcionando
+   • Footer com benefícios
+   • Pronto para Vercel (gratuito)
+
+🚀 PRÓXIMOS PASSOS (SIMPLES):
+
+   1️⃣  Criar conta GitHub (5 min)
+       → github.com → Sign up
+
+   2️⃣  Upload do código para GitHub (3 min)
+       → Siga DEPLOY_RAPIDO.md
+
+   3️⃣  Deploy no Vercel (2 min)
+       → vercel.com → Deploy
+
+   4️⃣  Site está ONLINE! ✨
+
+📋 ARQUIVOS IMPORTANTES:
+
+   ✓ README.md ..................... Guia completo
+   ✓ DEPLOY_RAPIDO.md .............. Deploy em 5 minutos
+   ✓ TROUBLESHOOTING.md ............ Resolver problemas
+   ✓ src/App.jsx ................... Código principal
+   ✓ src/index.css ................. Estilos CompraSicura
+   ✓ package.json .................. Dependências
+
+🎨 PERSONALIZAR:
+
+   • Trocar textos: Edite src/App.jsx
+   • Trocar cores: Edite src/index.css
+   • Adicionar produtos: Edite array products em src/App.jsx
+   • Trocar email: Procure "comprasicurax@gmail.com"
+
+💡 DICAS:
+
+   • Tudo está comentado e fácil de entender
+   • Use Ctrl+F para procurar textos
+   • Vercel faz deploy automático após cada git push
+   • Teste em celular para garantir responsividade
+
+⚠️  IMPORTANTE:
+
+   • Antes de deploy, instale Node.js em seu PC
+   • Crie conta gratuita GitHub e Vercel
+   • Siga DEPLOY_RAPIDO.md exatamente como está
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📞 EMAIL: comprasicurax@gmail.com
+🌍 SITE: https://comprasicura-SEU_USERNAME.vercel.app
+
+═══════════════════════════════════════════════════════════════════════════════
+
+                      COMECE AGORA! Tempo: 10 minutos total
+
+═══════════════════════════════════════════════════════════════════════════════
