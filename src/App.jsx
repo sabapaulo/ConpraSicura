@@ -50,6 +50,12 @@ export default function App() {
     }
   ]
 
+  const removeFromCart = (index) => {
+    const newCart = [...cart]
+    newCart.splice(index, 1)
+    setCart(newCart)
+  }
+
   const addToCart = (product) => {
     setCart([...cart, product])
   }
@@ -87,7 +93,7 @@ export default function App() {
               <div className="header-actions">
                 <input type="text" className="search-input" placeholder="Cerca prodotti..." />
                 <button className="icon-btn">👤</button>
-                <button className="icon-btn" onClick={() => setShowCart(!showCart)} style={{position: 'relative'}}>
+                <button className="icon-btn" onClick={() => setShowCart(!showCart)} style={{position: 'relative', background: 'none', border: 'none', padding: 0}}>
                   🛒
                   {cart.length > 0 && <span className="cart-badge">{cart.length}</span>}
                 </button>
@@ -103,28 +109,38 @@ export default function App() {
           position: 'fixed',
           right: 0,
           top: 120,
-          width: 300,
+          width: 320,
           background: 'white',
           border: '1px solid #e0e0e0',
           padding: 20,
           borderRadius: 4,
           boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-          zIndex: 99
+          zIndex: 99,
+          maxHeight: 'calc(100vh - 120px)',
+          overflowY: 'auto'
         }}>
-          <h3 style={{marginBottom: 16}}>Carrello ({cart.length})</h3>
+          <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16}}>
+            <h3>Carrello ({cart.length})</h3>
+            <button onClick={() => setShowCart(false)} style={{background: 'none', border: 'none', fontSize: 20, cursor: 'pointer'}}>✕</button>
+          </div>
+          
           {cart.length === 0 ? (
             <p style={{fontSize: 12, opacity: 0.7}}>Carrello vuoto</p>
           ) : (
             <>
               {cart.map((item, idx) => (
-                <div key={idx} style={{marginBottom: 12, paddingBottom: 12, borderBottom: '1px solid #f0f0f0'}}>
-                  <p style={{fontSize: 12, fontWeight: 600}}>{item.name}</p>
-                  <p style={{fontSize: 12, color: 'var(--oro-caldo)', fontWeight: 700}}>€{item.price}</p>
+                <div key={idx} style={{marginBottom: 12, paddingBottom: 12, borderBottom: '1px solid #f0f0f0', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start'}}>
+                  <div>
+                    <p style={{fontSize: 12, fontWeight: 600, marginBottom: 4}}>{item.name}</p>
+                    <p style={{fontSize: 12, color: 'var(--oro-caldo)', fontWeight: 700}}>€{item.price}</p>
+                  </div>
+                  <button onClick={() => removeFromCart(idx)} style={{background: 'none', border: 'none', color: 'red', cursor: 'pointer', fontSize: 16}}>✕</button>
                 </div>
               ))}
               <div style={{paddingTop: 12, borderTop: '2px solid #f0f0f0', marginTop: 12}}>
                 <p style={{fontSize: 14, fontWeight: 700, marginBottom: 12}}>Totale: €{cartTotal}</p>
-                <button className="btn-primary" style={{width: '100%'}}>Procedi al Checkout</button>
+                <button className="btn-primary" style={{width: '100%', marginBottom: 8}}>Procedi al Checkout</button>
+                <button onClick={() => setShowCart(false)} style={{width: '100%', padding: '10px', background: '#f0f0f0', border: 'none', borderRadius: 4, cursor: 'pointer', fontSize: 12, fontWeight: 600}}>Continua Shopping</button>
               </div>
             </>
           )}
@@ -136,10 +152,12 @@ export default function App() {
         <div className="container">
           <div className="hero-container">
             <div className="hero-left">
-              <div className="badge">✓ Oltre 25.000 clienti soddisfatti</div>
+              <div className="badge">
+                ✓ Oltre 25.000 clienti soddisfatti
+              </div>
               <h1>Prodotti selezionati per semplificare la tua vita.</h1>
               <p>Qualità, praticità e fiducia. Direttamente a casa tua.</p>
-              <button className="btn-secondary" style={{marginBottom: 30}}>Scopri i Prodotti</button>
+              <button className="btn-secondary" style={{marginBottom: 30, cursor: 'pointer'}}>Scopri i Prodotti</button>
 
               <div style={{background: 'rgba(255, 255, 255, 0.1)', padding: 20, borderRadius: 6}}>
                 <div style={{marginBottom: 12}}>
@@ -194,7 +212,7 @@ export default function App() {
                   <h3 className="product-title">{product.name}</h3>
                   <div className="product-price">€{product.price}</div>
                   <div className="product-rating">★★★★★ ({product.rating})</div>
-                  <button className="btn-primary" style={{width: '100%'}} onClick={() => addToCart(product)}>
+                  <button className="btn-primary" style={{width: '100%', cursor: 'pointer'}} onClick={() => addToCart(product)}>
                     Acquista Ora
                   </button>
                 </div>
